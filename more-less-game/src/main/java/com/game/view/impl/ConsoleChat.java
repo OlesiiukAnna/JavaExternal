@@ -2,15 +2,9 @@ package com.game.view.impl;
 
 import com.game.view.BaseChat;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Optional;
 
 public class ConsoleChat implements BaseChat {
-
-    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     @Override
     public void printCondition() {
@@ -18,17 +12,8 @@ public class ConsoleChat implements BaseChat {
     }
 
     @Override
-    public Optional<String> getValueFromUser(int min, int max) {
+    public void getValueFromUser(int min, int max) {/* Optional<String>*/
         System.out.printf("Please, enter an integer number in range from %d to %d \n", min, max);
-
-        String incomeValue = null;
-        try {
-            incomeValue = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return Optional.ofNullable(incomeValue);
     }
 
     @Override
@@ -42,11 +27,6 @@ public class ConsoleChat implements BaseChat {
 
     @Override
     public void printCongratulations() {
-        try {
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         System.out.println("You won!");
     }
 

@@ -5,6 +5,9 @@ import com.game.ecxeption.WrongValueException;
 import com.game.model.impl.NumberGame;
 import com.game.view.BaseChat;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Optional;
 
 public class NumberGameController implements BaseController {
@@ -13,6 +16,8 @@ public class NumberGameController implements BaseController {
     private NumberGame numberGame;
 
     private boolean isGameProcessing = true;
+
+    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public NumberGameController(BaseChat chat, NumberGame numberGame) {
         this.chat = chat;
@@ -34,6 +39,12 @@ public class NumberGameController implements BaseController {
 
         } while (isGameProcessing);
 
+        try {
+            reader.close();
+        } catch (IOException e) { 
+            e.printStackTrace();
+        }
+
         chat.printCongratulations();
         chat.printStatistic(numberGame.getNumberOfAttempts(), numberGame.getEnteredValues());
     }
@@ -50,11 +61,16 @@ public class NumberGameController implements BaseController {
 
     @Override
     public String getEnteredValue() {
-        Optional<String> value = chat.getValueFromUser(numberGame.getMin(), numberGame.getMax());
-        if (value.isEmpty()) {
-            throw new WrongValueException("Some Null appeared");
+        chat.getValueFromUser(numberGame.getMin(), numberGame.getMax());
+
+        String incomeValue = null;
+        try {
+            incomeValue = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return value.get();
+
+        return incomeValue;
     }
 
     @Override

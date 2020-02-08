@@ -92,7 +92,7 @@ public class NumberGame implements BaseNumberGame {
             return Optional.empty();
         }
 
-        return Optional.ofNullable(currentNumber);
+        return Optional.of(currentNumber);
     }
 
     private boolean isEnteredValueIsNumber() {
