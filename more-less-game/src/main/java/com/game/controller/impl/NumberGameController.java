@@ -41,7 +41,7 @@ public class NumberGameController implements BaseController {
 
         try {
             reader.close();
-        } catch (IOException e) { 
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
