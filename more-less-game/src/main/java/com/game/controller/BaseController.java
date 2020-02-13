@@ -4,6 +4,8 @@ public interface BaseController {
 
     void startGame();
 
+    void selectLanguage();
+
     boolean isGameProcessing();
 
     String getEnteredValue();

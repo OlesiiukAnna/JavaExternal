@@ -1,14 +1,14 @@
 package com.game.controller.impl;
 
+import com.game.ResourceManager;
 import com.game.controller.BaseController;
-import com.game.ecxeption.WrongValueException;
 import com.game.model.impl.NumberGame;
 import com.game.view.BaseChat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Optional;
+import java.util.Locale;
 
 public class NumberGameController implements BaseController {
 
@@ -17,6 +17,7 @@ public class NumberGameController implements BaseController {
 
     private boolean isGameProcessing = true;
 
+    private ResourceManager resManager = ResourceManager.INSTANCE;
     private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public NumberGameController(BaseChat chat, NumberGame numberGame) {
@@ -26,10 +27,13 @@ public class NumberGameController implements BaseController {
 
     @Override
     public void startGame() {
+        selectLanguage();
         chat.printCondition();
 
         do {
             chat.printPreviousAttempts(numberGame.getEnteredValues());
+            chat.askUserForValue(numberGame.getMin(), numberGame.getMax());
+
             saveEnteredValue(getEnteredValue());
 
             if (isGameProcessing()) {
@@ -54,6 +58,34 @@ public class NumberGameController implements BaseController {
     }
 
     @Override
+    public void selectLanguage() {
+        chat.askSelectLanguage();
+        Locale locale = null;
+        boolean isSelected;
+        do {
+            switch (getEnteredValue()) {
+                case "en":
+                    locale = new Locale("en");
+                    isSelected = true;
+                    break;
+                case "ru":
+                    locale = new Locale("ru");
+                    isSelected = true;
+                    break;
+                case "ua":
+                    locale = new Locale("ua");
+                    isSelected = true;
+                    break;
+                default:
+                    chat.getWrongLanguageMessage();
+                    isSelected = false;
+            }
+        } while (!isSelected);
+
+        resManager.changeResource(locale);
+    }
+
+    @Override
     public boolean isGameProcessing() {
         isGameProcessing = !numberGame.isWon();
         return isGameProcessing;
@@ -61,7 +93,6 @@ public class NumberGameController implements BaseController {
 
     @Override
     public String getEnteredValue() {
-        chat.getValueFromUser(numberGame.getMin(), numberGame.getMax());
 
         String incomeValue = null;
         try {

@@ -1,44 +1,56 @@
 package com.game.view.impl;
 
 import com.game.view.BaseChat;
+import com.game.ResourceManager;
 
 import java.util.List;
 
 public class ConsoleChat implements BaseChat {
+    private ResourceManager resManager = ResourceManager.INSTANCE;
 
     @Override
-    public void printCondition() {
-        System.out.println("You should guess an integer number in range from 0 to 100 inclusively");
+    public void askSelectLanguage() {
+        System.out.println(resManager.getString("language"));
     }
 
     @Override
-    public void getValueFromUser(int min, int max) {/* Optional<String>*/
-        System.out.printf("Please, enter an integer number in range from %d to %d \n", min, max);
+    public void getWrongLanguageMessage() {
+        System.out.println(resManager.getString("incorrectLanguage"));
+    }
+
+    @Override
+    public void printCondition() {
+        System.out.println(resManager.getString("condition"));
+    }
+
+    @Override
+    public void askUserForValue(int min, int max) {
+        System.out.printf(resManager.getString("getValueFromUser"), min, max);
     }
 
     @Override
     public void printPreviousAttempts(List<String> attemptValues) {
-        if (!attemptValues.isEmpty()){
-            System.out.println("You previously entered: " + attemptValues);
+        if (!attemptValues.isEmpty()) {
+            System.out.println(resManager.getString("previousValues") + attemptValues);
         } else {
-            System.out.println("You haven't try yet, I have no data of your attempts");
+            System.out.println(resManager.getString("noPreviousValues"));
         }
     }
 
     @Override
     public void printCongratulations() {
-        System.out.println("You won!");
+        System.out.println(resManager.getString("congratulations"));
     }
 
     @Override
     public void printStatistic(int tries, List<String> enteredValues) {
-        System.out.println("Tries: " + tries);
-        System.out.println("Entered values: " + enteredValues);
+        System.out.println(resManager.getString("numberOfTries") + tries);
+        System.out.println(resManager.getString("enteredValues") + enteredValues);
     }
 
     @Override
     public void getWrongValueMassage() {
-        System.out.println("It's not what we are looking for...");
+        System.out.println(resManager.getString("incorrectValue"));
     }
 
 }
