@@ -1,0 +1,41 @@
+32379 [main] ERROR ua.sonnet.engine.impl.Engine - Url doesn't contain appropriate tags
+18652 [main] ERROR ua.sonnet.engine.impl.Engine - Number format
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at ua.sonnet.controller.impl.SearchController.setRange(SearchController.java:65)
+	at ua.sonnet.controller.impl.SearchController.search(SearchController.java:39)
+	at ua.sonnet.SearchService.main(SearchService.java:16)
+237045 [main] ERROR ua.sonnet.engine.impl.Engine - Number format
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at ua.sonnet.controller.impl.SearchController.setRange(SearchController.java:65)
+	at ua.sonnet.controller.impl.SearchController.search(SearchController.java:39)
+	at ua.sonnet.SearchService.main(SearchService.java:16)
+16421 [main] ERROR ua.sonnet.engine.impl.Engine - Number format
+java.lang.NumberFormatException: For input string: "d"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at ua.sonnet.controller.impl.SearchController.setRange(SearchController.java:74)
+	at ua.sonnet.controller.impl.SearchController.search(SearchController.java:42)
+	at ua.sonnet.SearchService.main(SearchService.java:16)
+104909 [main] ERROR ua.sonnet.engine.impl.Engine - Number format
+java.lang.NumberFormatException: For input string: "df"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at ua.sonnet.controller.impl.SearchController.setRange(SearchController.java:74)
+	at ua.sonnet.controller.impl.SearchController.search(SearchController.java:42)
+	at ua.sonnet.SearchService.main(SearchService.java:16)
+5141 [main] INFO  ua.sonnet.engine.impl.Engine - Number format
+java.lang.NumberFormatException: For input string: "df"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at ua.sonnet.controller.impl.SearchController.setRange(SearchController.java:74)
+	at ua.sonnet.controller.impl.SearchController.search(SearchController.java:42)
+	at ua.sonnet.SearchService.main(SearchService.java:16)
