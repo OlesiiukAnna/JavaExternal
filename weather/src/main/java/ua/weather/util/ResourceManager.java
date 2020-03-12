@@ -8,9 +8,9 @@ public enum ResourceManager {
     private ResourceBundle resourceBundle;
     private final String resourceName = "info";
     ResourceManager() {
-//        resourceBundle = ResourceBundle.getBundle(resourceName, Locale.getDefault());
+        resourceBundle = ResourceBundle.getBundle(resourceName, Locale.getDefault());
 //        resourceBundle = ResourceBundle.getBundle(resourceName, new Locale("ru"));
-        resourceBundle = ResourceBundle.getBundle(resourceName, new Locale("ua"));
+//        resourceBundle = ResourceBundle.getBundle(resourceName, new Locale("ua"));
     }
     public void changeResource(Locale locale) {
         resourceBundle = ResourceBundle.getBundle(resourceName, locale);

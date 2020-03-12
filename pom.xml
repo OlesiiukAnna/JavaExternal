@@ -12,6 +12,7 @@
         <module>more-less-game</module>
         <module>shakespeare</module>
         <module>weather</module>
+        <module>flatware</module>
     </modules>
 
     <dependencies>
