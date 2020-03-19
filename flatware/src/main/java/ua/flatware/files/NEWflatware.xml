@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <h1 align="center">Flatware</h1>
+        <table border="1" align="center">
+            <tr bgcolor="#a9f5e8">
+                <th>Type</th><th>Length(cm)/Volume(ml)</th><th>Active Part Material</th><th>Handle Material</th><th>Origin</th><th>Value</th>
+            </tr>
+            <tr>
+                <td align="center">Fork</td><td align="center">3</td><td align="center">nickel silver</td><td align="center">oak</td><td align="center">Ukraine</td><td align="center">false</td>
+            </tr>
+            <tr>
+                <td align="center">Fork</td><td align="center">4</td><td align="center">stainless steel</td><td align="center">bamboo</td><td align="center">Poland</td><td align="center">true</td>
+            </tr>
+            <tr>
+                <td align="center">Fork</td><td align="center">5</td><td align="center">stainless steel</td><td align="center">acacia</td><td align="center">Czech Republic</td><td align="center">false</td>
+            </tr>
+            <tr>
+                <td align="center">Knife</td><td align="center">6</td><td align="center">stainless steel</td><td align="center">bamboo</td><td align="center">Poland</td><td align="center">true</td>
+            </tr>
+            <tr>
+                <td align="center">Knife</td><td align="center">7</td><td align="center">stainless steel</td><td align="center">acacia</td><td align="center">Czech Republic</td><td align="center">false</td>
+            </tr>
+            <tr>
+                <td align="center">Knife</td><td align="center">11</td><td align="center">nickel silver</td><td align="center">oak</td><td align="center">Ukraine</td><td align="center">false</td>
+            </tr>
+            <tr>
+                <td align="center">Spoon</td><td align="center">5</td><td align="center">stainless steel</td><td align="center">bamboo</td><td align="center">Poland</td><td align="center">true</td>
+            </tr>
+            <tr>
+                <td align="center">Spoon</td><td align="center">10</td><td align="center">nickel silver</td><td align="center">oak</td><td align="center">Ukraine</td><td align="center">false</td>
+            </tr>
+            <tr>
+                <td align="center">Spoon</td><td align="center">15</td><td align="center">stainless steel</td><td align="center">acacia</td><td align="center">Czech Republic</td><td align="center">false</td>
+            </tr>
+        </table>
+    </body>
+</html>

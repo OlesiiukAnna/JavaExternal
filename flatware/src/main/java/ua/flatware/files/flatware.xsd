@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://flatware.ua/"
+            xmlns:tns="http://flatware.ua/"
+            elementFormDefault="qualified">
+
+    <xsd:element name="flatware">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ware" type="tns:Ware" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="Ware">
+        <xsd:sequence>
+            <xsd:element name="type" type="tns:Type"/>
+            <xsd:element name="origin" type="tns:Origin"/>
+            <xsd:element name="visual" type="tns:Visual"/>
+            <xsd:element name="value" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Type">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Knife"/>
+            <xsd:enumeration value="Fork"/>
+            <xsd:enumeration value="Spoon"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Origin">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Ukraine"/>
+            <xsd:enumeration value="Poland"/>
+            <xsd:enumeration value="Czech Republic"/>
+            <xsd:enumeration value="United Kingdom"/>
+            <xsd:enumeration value="France"/>
+            <xsd:enumeration value="Germany"/>
+            <xsd:enumeration value="Italy"/>
+            <xsd:enumeration value="Belarus"/>
+            <xsd:enumeration value="Norway"/>
+            <xsd:enumeration value="Slovakia"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Visual">
+        <xsd:sequence>
+            <xsd:element name="active-part" type="tns:ActivePart"/>
+            <xsd:element name="handle" type="tns:Handle"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ActivePart">
+        <xsd:choice>
+            <xsd:element name="blade" type="tns:Blade"/>
+            <xsd:element name="prong" type="tns:Prong"/>
+            <xsd:element name="scoop" type="tns:Scoop"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="Blade">
+        <xsd:sequence>
+            <xsd:element name="material" type="tns:Material"/>
+        </xsd:sequence>
+        <xsd:attribute name="length" type="xsd:positiveInteger" default="10"/>
+        <xsd:attribute name="width" type="xsd:positiveInteger" default="10"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Prong">
+        <xsd:sequence>
+            <xsd:element name="material" type="tns:Material"/>
+        </xsd:sequence>
+        <xsd:attribute name="length" type="xsd:positiveInteger" default="4"/>
+        <xsd:attribute name="quantity" type="xsd:positiveInteger" default="4"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Scoop">
+        <xsd:sequence>
+            <xsd:element name="material" type="tns:Material"/>
+        </xsd:sequence>
+        <xsd:attribute name="volume" default="5">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:positiveInteger">
+                    <xsd:enumeration value="5"/>
+                    <xsd:enumeration value="10"/>
+                    <xsd:enumeration value="15"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Handle">
+        <xsd:sequence>
+            <xsd:element name="material" type="tns:Material"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Material">
+        <xsd:choice>
+            <xsd:element name="steel" type="tns:Steel"/>
+            <xsd:element name="wood" type="tns:Wood"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="Steel">
+        <xsd:attribute name="material-type" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="stainless steel"/>
+                    <xsd:enumeration value="nickel silver"/>
+                    <xsd:enumeration value="silver"/>
+                    <xsd:enumeration value="gold"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Wood">
+        <xsd:attribute name="material-type" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="oak"/>
+                    <xsd:enumeration value="acacia"/>
+                    <xsd:enumeration value="bamboo"/>
+                    <xsd:enumeration value="ash"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>

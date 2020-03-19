@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flatware xmlns="http://flatware.ua/">
+
+    <ware>
+        <type>Knife</type>
+        <origin>Ukraine</origin>
+        <visual>
+            <active-part>
+                <blade length="11" width="3">
+                    <material>
+                        <steel material-type="nickel silver"/>
+                    </material>
+                </blade>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="oak"/>
+                </material>
+            </handle>
+        </visual>
+        <value>false</value>
+    </ware>
+
+    <ware>
+        <type>Fork</type>
+        <origin>Ukraine</origin>
+        <visual>
+            <active-part>
+                <prong length="3" quantity="4">
+                    <material>
+                        <steel material-type="nickel silver"/>
+                    </material>
+                </prong>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="oak"/>
+                </material>
+            </handle>
+        </visual>
+        <value>false</value>
+    </ware>
+
+    <ware>
+        <type>Spoon</type>
+        <origin>Ukraine</origin>
+        <visual>
+            <active-part>
+                <scoop volume="10">
+                    <material>
+                        <steel material-type="nickel silver"/>
+                    </material>
+                </scoop>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="oak"/>
+                </material>
+            </handle>
+        </visual>
+        <value>false</value>
+    </ware>
+
+    <ware>
+        <type>Knife</type>
+        <origin>Poland</origin>
+        <visual>
+            <active-part>
+                <blade length="6" width="1">
+                    <material>
+                        <steel material-type="stainless steel"/>
+                    </material>
+                </blade>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="bamboo"/>
+                </material>
+            </handle>
+        </visual>
+        <value>true</value>
+    </ware>
+
+    <ware>
+        <type>Fork</type>
+        <origin>Poland</origin>
+        <visual>
+            <active-part>
+                <prong length="4" quantity="3">
+                    <material>
+                        <steel material-type="stainless steel"/>
+                    </material>
+                </prong>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="bamboo"/>
+                </material>
+            </handle>
+        </visual>
+        <value>true</value>
+    </ware>
+
+    <ware>
+        <type>Spoon</type>
+        <origin>Poland</origin>
+        <visual>
+            <active-part>
+                <scoop volume="5">
+                    <material>
+                        <steel material-type="stainless steel"/>
+                    </material>
+                </scoop>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="bamboo"/>
+                </material>
+            </handle>
+        </visual>
+        <value>true</value>
+    </ware>
+
+    <ware>
+        <type>Knife</type>
+        <origin>Czech Republic</origin>
+        <visual>
+            <active-part>
+                <blade length="7" width="2">
+                    <material>
+                        <steel material-type="stainless steel"/>
+                    </material>
+                </blade>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="acacia"/>
+                </material>
+            </handle>
+        </visual>
+        <value>false</value>
+    </ware>
+
+    <ware>
+        <type>Fork</type>
+        <origin>Czech Republic</origin>
+        <visual>
+            <active-part>
+                <prong length="5" quantity="4">
+                    <material>
+                        <steel material-type="stainless steel"/>
+                    </material>
+                </prong>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="acacia"/>
+                </material>
+            </handle>
+        </visual>
+        <value>false</value>
+    </ware>
+
+    <ware>
+        <type>Spoon</type>
+        <origin>Czech Republic</origin>
+        <visual>
+            <active-part>
+                <scoop volume="15">
+                    <material>
+                        <steel material-type="stainless steel"/>
+                    </material>
+                </scoop>
+            </active-part>
+            <handle>
+                <material>
+                    <wood material-type="acacia"/>
+                </material>
+            </handle>
+        </visual>
+        <value>false</value>
+    </ware>
+
+</flatware>
