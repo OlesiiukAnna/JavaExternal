@@ -20,6 +20,16 @@ public class Chat implements BaseChat {
     }
 
     @Override
+    public void printFlatwareIsValid() {
+        System.out.println("Flatware collection is valid");
+    }
+
+    @Override
+    public void printFlatWareNotValid() {
+        System.out.println("Flatware collection not valid, check your flatware parameters");
+    }
+
+    @Override
     public void printTransformationComplete() {
         System.out.println("Transformation complete, pick up the file from the specified directory");
     }

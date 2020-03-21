@@ -2,13 +2,16 @@ package ua.flatware.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import ua.flatware.annotations.Fork;
 
 public class Prong {
 
     @JsonProperty("material")
     private Material material;
     @JacksonXmlProperty(isAttribute = true)
+    @Fork
     private int length;
+    @Fork
     @JacksonXmlProperty(isAttribute = true)
     private int quantity;
 

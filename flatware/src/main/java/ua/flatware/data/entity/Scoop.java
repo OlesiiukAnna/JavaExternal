@@ -2,11 +2,13 @@ package ua.flatware.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import ua.flatware.annotations.Spoon;
 
 public class Scoop {
 
     @JsonProperty("material")
     private Material material;
+    @Spoon
     @JacksonXmlProperty(isAttribute = true)
     private int volume;
 

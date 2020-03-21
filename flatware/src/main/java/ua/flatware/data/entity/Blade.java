@@ -2,14 +2,17 @@ package ua.flatware.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import ua.flatware.annotations.Knife;
 
 
 public class Blade {
 
     @JsonProperty("material")
     private Material material;
+    @Knife
     @JacksonXmlProperty(isAttribute = true)
     private int length;
+    @Knife
     @JacksonXmlProperty(isAttribute = true)
     private int width;
 

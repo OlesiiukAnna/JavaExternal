@@ -9,5 +9,9 @@ public interface BaseChat {
 
     void printParsingSuccessful();
 
+    void printFlatwareIsValid();
+
+    void printFlatWareNotValid();
+
     void printTransformationComplete();
 }

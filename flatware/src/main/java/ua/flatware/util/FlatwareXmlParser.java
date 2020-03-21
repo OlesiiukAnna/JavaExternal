@@ -12,6 +12,15 @@ import java.io.IOException;
 public class FlatwareXmlParser {
 
     private final static Logger logger = LoggerFactory.getLogger(FlatwareXmlParser.class);
+    private static FlatwareXmlParser flatwareXmlParser = new FlatwareXmlParser();
+
+    private FlatwareXmlParser() {
+
+    }
+
+    public static FlatwareXmlParser getFlatwareXmlParser() {
+        return flatwareXmlParser;
+    }
 
     public static Flatware parse(String xmlFilePath) throws FlatwareXmlParserException {
         Flatware flatware = null;

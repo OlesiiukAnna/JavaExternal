@@ -1,20 +1,13 @@
 package ua.flatware.controller.impl;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ua.flatware.controller.Controller;
 import ua.flatware.data.XmlFileHandler;
-
+import ua.flatware.data.entity.Flatware;
+import ua.flatware.util.FlatwareValidator;
 import ua.flatware.view.BaseChat;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class XmlController implements Controller {
-    private final static Logger logger = LoggerFactory.getLogger(XmlController.class);
-    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
+    
     private BaseChat chat;
     private XmlFileHandler xmlFileHandler;
 
@@ -36,23 +29,41 @@ public class XmlController implements Controller {
             chat.printIfXmlValid();
             xmlFileHandler.parseXmlToPojo();
             chat.printParsingSuccessful();
-            xmlFileHandler.transformXml();
-            chat.printTransformationComplete();
+
+            if (FlatwareValidator.isFlatwareValid(xmlFileHandler.getFlatware())) {
+                chat.printFlatwareIsValid();
+                Flatware flatware = xmlFileHandler.getFlatware();
+
+                flatwareSort(flatware);
+                flatware.getFlatware().forEach(System.out::println);
+
+                xmlFileHandler.transformXml();
+                chat.printTransformationComplete();
+            } else {
+                chat.printFlatWareNotValid();
+            }
         } else {
             chat.printIfXmlNotValid();
         }
 
     }
 
-    public String getEnteredValue() {
-
-        String incomeValue = null;
-        try {
-            incomeValue = reader.readLine();
-        } catch (IOException e) {
-            logger.error(e.toString());
-        }
-
-        return incomeValue;
+    private void flatwareSort(Flatware flatware) {
+        flatware.getFlatware().sort((ware, anotherWare) -> {
+            if (ware.getVisual().getActivePart().getBlade() != null &&
+                    anotherWare.getVisual().getActivePart().getBlade() != null) {
+                return ware.getVisual().getActivePart().getBlade().getLength() -
+                        anotherWare.getVisual().getActivePart().getBlade().getLength();
+            } else if (ware.getVisual().getActivePart().getProng() != null &&
+                    anotherWare.getVisual().getActivePart().getProng() != null) {
+                return ware.getVisual().getActivePart().getProng().getLength() -
+                        anotherWare.getVisual().getActivePart().getProng().getLength();
+            } else if (ware.getVisual().getActivePart().getScoop() != null &&
+                    anotherWare.getVisual().getActivePart().getScoop() != null) {
+                return ware.getVisual().getActivePart().getScoop().getVolume() -
+                        anotherWare.getVisual().getActivePart().getScoop().getVolume();
+            }
+            return ware.getType().compareTo(anotherWare.getType());
+        });
     }
 }

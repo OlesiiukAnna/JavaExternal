@@ -17,10 +17,9 @@ import java.io.IOException;
 public class ValidatorSAXXSD {
 
     private final static Logger logger = LoggerFactory.getLogger(ValidatorSAXXSD.class);
+    private static ValidatorSAXXSD validator = new ValidatorSAXXSD();
 
     private static String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
-
-    private static ValidatorSAXXSD validator = new ValidatorSAXXSD();
 
     private ValidatorSAXXSD() {
     }
