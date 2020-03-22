@@ -3,6 +3,7 @@ package ua.flatware.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
+import ua.flatware.commands.Command;
 import ua.flatware.exceptions.ValidatorSAXXSDException;
 
 import javax.xml.XMLConstants;
@@ -45,6 +46,5 @@ public class ValidatorSAXXSD {
             throw new ValidatorSAXXSDException(String.format("%s is not valid because ", xmlName), e);
         }
     }
-
 
 }

@@ -1,19 +1,24 @@
 package ua.flatware.controller.impl;
 
+import ua.flatware.commands.CommandInvoker;
 import ua.flatware.controller.Controller;
-import ua.flatware.data.XmlFileHandler;
+import ua.flatware.data.FlatwareHandler;
 import ua.flatware.data.entity.Flatware;
 import ua.flatware.util.FlatwareValidator;
 import ua.flatware.view.BaseChat;
 
+import static ua.flatware.commands.BasicCommands.SHOW_FLATWARE;
+
 public class XmlController implements Controller {
     
     private BaseChat chat;
-    private XmlFileHandler xmlFileHandler;
+    private FlatwareHandler flatwareHandler;
+    private CommandInvoker commandInvoker;
 
-    public XmlController(BaseChat chat, XmlFileHandler xmlFileHandler) {
+    public XmlController(BaseChat chat, FlatwareHandler flatwareHandler) {
         this.chat = chat;
-        this.xmlFileHandler = xmlFileHandler;
+        this.flatwareHandler = flatwareHandler;
+        commandInvoker = new CommandInvoker(flatwareHandler.getFlatware());
     }
 
     @Override
@@ -23,21 +28,23 @@ public class XmlController implements Controller {
     }
 
     public void handleFlatwareXml() {
-        boolean validation = xmlFileHandler.isXmlValid();
+        boolean validation = flatwareHandler.isXmlValid();
 
         if (validation) {
             chat.printIfXmlValid();
-            xmlFileHandler.parseXmlToPojo();
+            flatwareHandler.parseXmlToPojo();
             chat.printParsingSuccessful();
 
-            if (FlatwareValidator.isFlatwareValid(xmlFileHandler.getFlatware())) {
+            Flatware flatware = flatwareHandler.getFlatware();
+            commandInvoker.setFlatware(flatware);
+
+            if (FlatwareValidator.isFlatwareValid(flatware)) {
                 chat.printFlatwareIsValid();
-                Flatware flatware = xmlFileHandler.getFlatware();
 
-                flatwareSort(flatware);
-                flatware.getFlatware().forEach(System.out::println);
+                flatwareHandler.flatwareSort(flatware);
+                commandInvoker.executeCommand(SHOW_FLATWARE.getName());
 
-                xmlFileHandler.transformXml();
+                flatwareHandler.transformXml();
                 chat.printTransformationComplete();
             } else {
                 chat.printFlatWareNotValid();
@@ -48,22 +55,4 @@ public class XmlController implements Controller {
 
     }
 
-    private void flatwareSort(Flatware flatware) {
-        flatware.getFlatware().sort((ware, anotherWare) -> {
-            if (ware.getVisual().getActivePart().getBlade() != null &&
-                    anotherWare.getVisual().getActivePart().getBlade() != null) {
-                return ware.getVisual().getActivePart().getBlade().getLength() -
-                        anotherWare.getVisual().getActivePart().getBlade().getLength();
-            } else if (ware.getVisual().getActivePart().getProng() != null &&
-                    anotherWare.getVisual().getActivePart().getProng() != null) {
-                return ware.getVisual().getActivePart().getProng().getLength() -
-                        anotherWare.getVisual().getActivePart().getProng().getLength();
-            } else if (ware.getVisual().getActivePart().getScoop() != null &&
-                    anotherWare.getVisual().getActivePart().getScoop() != null) {
-                return ware.getVisual().getActivePart().getScoop().getVolume() -
-                        anotherWare.getVisual().getActivePart().getScoop().getVolume();
-            }
-            return ware.getType().compareTo(anotherWare.getType());
-        });
-    }
 }
