@@ -46,7 +46,7 @@ public class XmlController implements Controller {
                 commandInvoker.executeCommand(SHOW_FLATWARE.getName());
 
                 commandInvoker.executeCommand(TRANSFORM_XML_TO_HTML.getName());
-git 0                chat.printTransformationComplete();
+                chat.printTransformationComplete();
             } else {
                 chat.printFlatWareNotValid();
             }
