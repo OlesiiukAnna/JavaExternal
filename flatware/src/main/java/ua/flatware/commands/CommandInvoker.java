@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static ua.flatware.commands.BasicCommands.*;
-import static ua.flatware.file.path.constants.FilePathConstants.*;
+import static ua.flatware.constants.FilePathConstants.*;
 
 public class CommandInvoker {
     private final static Logger logger = LoggerFactory.getLogger(CommandInvoker.class);

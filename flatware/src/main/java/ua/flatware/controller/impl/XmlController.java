@@ -8,6 +8,7 @@ import ua.flatware.util.FlatwareValidator;
 import ua.flatware.view.BaseChat;
 
 import static ua.flatware.commands.BasicCommands.SHOW_FLATWARE;
+import static ua.flatware.commands.BasicCommands.TRANSFORM_XML_TO_HTML;
 
 public class XmlController implements Controller {
     
@@ -44,8 +45,8 @@ public class XmlController implements Controller {
                 flatwareHandler.flatwareSort(flatware);
                 commandInvoker.executeCommand(SHOW_FLATWARE.getName());
 
-                flatwareHandler.transformXml();
-                chat.printTransformationComplete();
+                commandInvoker.executeCommand(TRANSFORM_XML_TO_HTML.getName());
+git 0                chat.printTransformationComplete();
             } else {
                 chat.printFlatWareNotValid();
             }

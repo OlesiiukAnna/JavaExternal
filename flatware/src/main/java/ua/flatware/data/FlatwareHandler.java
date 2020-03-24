@@ -10,7 +10,7 @@ import ua.flatware.util.FlatwareXmlParser;
 import ua.flatware.util.ValidatorSAXXSD;
 import ua.flatware.util.XmlTransformHelper;
 
-import static ua.flatware.file.path.constants.FilePathConstants.*;
+import static ua.flatware.constants.FilePathConstants.*;
 
 public class FlatwareHandler {
     private final static Logger logger = LoggerFactory.getLogger(FlatwareHandler.class);
