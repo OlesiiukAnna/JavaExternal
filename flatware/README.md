@@ -9,7 +9,7 @@ This app parse xml files that describes flatware such as knife, fork and spoon.
 * Custom annotations check if pojo parameters valid to required (length, width, quantity, volume)
 * lambdas are used for commands (Command is a Functional interface)
 * Commands are used in controller
-[Main app class](./flatware/src/main/java/ua/flatware/FlatwareXML.java)
+[Main app class](./src/main/java/ua/flatware/FlatwareXML.java)
 
 Task:
 v0.1 использовать анотации для валидации полей
