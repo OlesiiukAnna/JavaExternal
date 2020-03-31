@@ -13,6 +13,7 @@
         <module>shakespeare</module>
         <module>weather</module>
         <module>flatware</module>
+        <module>production</module>
     </modules>
 
     <dependencies>
