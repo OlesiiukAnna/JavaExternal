@@ -14,6 +14,7 @@
         <module>weather</module>
         <module>flatware</module>
         <module>production</module>
+        <module>port</module>
     </modules>
 
     <dependencies>
